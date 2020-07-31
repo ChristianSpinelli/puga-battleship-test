@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 2c9e0b0066ab3c141a132f5854919821
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Red Rose
+  fontNames:
+  - Red Rose
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 228631d34e3eea949aa4d1907cff49e7, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

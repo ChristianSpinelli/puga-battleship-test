@@ -14,6 +14,7 @@ public class CurrencyManager : MonoBehaviour
 
     [Header("Behaviour")]
     [HideInInspector] public int totalCurrencys;
+    [HideInInspector] public int stageCurrencys;
 
 
     void Awake()
@@ -21,9 +22,20 @@ public class CurrencyManager : MonoBehaviour
         instance = this;
     }
 
+    private void Update()
+    {
+        if (GameManager.instance.endGame)
+            OnFinish();
+    }
 
     public void AddCurrency(int valueToAdd)
     {
-        totalCurrencys += valueToAdd;
+        stageCurrencys += valueToAdd;
+    }
+
+   private void OnFinish()
+    {
+        totalCurrencys += stageCurrencys;
+        stageCurrencys = 0;
     }
 }
