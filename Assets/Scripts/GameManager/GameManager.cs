@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     {
         endGame = false;
         ship.transform.position = new Vector3(pivotToRestart.position.x, ship.transform.position.y, pivotToRestart.position.z);
-        ship.GetComponent<ShipController>().allStatus[ship.GetComponent<ShipController>().healthLevel - 1].health = 250;
+        ship.GetComponent<ShipController>().allStatus[ship.GetComponent<ShipController>().healthLevel - 1].health = ship.GetComponent<ShipController>().InitialHealth;
         ship.GetComponent<ShipController>().EnebleMesh(true);
         SpawnManager.Instance.DestroyerAllEnemy();
         SpawnManager.Instance.spawnAble = true;

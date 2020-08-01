@@ -6,7 +6,7 @@ public class Status : MonoBehaviour
 
     [Header("Settings")]
     public ShipType myType;
-    public List<StatusLevel> allStatus;
+    public List<PlayerStatusLevel> allStatus;
     [Range(1, 5)] public int healthLevel;
     [Range(1, 5)] public int attackLevel;
     [Range(1, 5)] public int speedLevel;
@@ -37,10 +37,3 @@ public class Status : MonoBehaviour
     }
 }
 
-[System.Serializable]
-public class StatusLevel 
-{
-    public int health;
-    public int attack;
-    public float speed;
-}

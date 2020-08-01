@@ -46,7 +46,12 @@ public class ShipController : Status
     float specialRechargTime;
     float currentSpecialRechargTime;
     float currentslowMotionTime;
+    int initialHealth;
 
+    public int InitialHealth
+    {
+        get { return initialHealth; }
+    }
 
     void Start()
     {
@@ -57,6 +62,7 @@ public class ShipController : Status
         SetSpecialStats();
 
         currentslowMotionTime = slowMotionMaxTime;
+        initialHealth = allStatus[healthLevel - 1].health;
     }
 
 

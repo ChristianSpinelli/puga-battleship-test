@@ -10,7 +10,7 @@ public class EnemysBehavior : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] EnemysType enemyType;
-    [SerializeField] protected List<EnemysStatus> status;
+    [SerializeField] protected List<EnemyStatus> status;
     [SerializeField] protected int level = 1;
     [SerializeField] protected int myCurrencyToDrop;
     [SerializeField] protected float MaxDistanceToDrop;
@@ -312,9 +312,4 @@ public class EnemysBehavior : MonoBehaviour
 }
 
 
-[System.Serializable]
-public class EnemysStatus
-{
-    public int life, fireDamage, bulletsToRecharg, shieldResistence, meleeDamage;
-    public float movimentSpeed, fireRate, fireRechargTime, shieldRechargTime, meleeAttackDelay, meleeAttackTime, stunTime;
-}
+
