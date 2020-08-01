@@ -49,7 +49,7 @@ public class BulletBehavior : Bullet
             if (other.GetComponent<Status>())
             {
                 if (other.GetComponent<Status>().myType != originType)
-                {
+                {          
                     other.GetComponent<Status>().TakeDamage(this.damage);
                     currentTargets++;
                     CheckDead();
@@ -65,7 +65,11 @@ public class BulletBehavior : Bullet
                 }
             }else if(other.GetComponent<EnemysBehavior>() && originType == ShipType.HERO)
             {
-                other.GetComponent<EnemysBehavior>().TakeDamage(this.damage);
+                //if the enemy is invisible it doesnt take damage
+                if (!other.GetComponent<EnemysBehavior>().IsInvisible)
+                {
+                    other.GetComponent<EnemysBehavior>().TakeDamage(this.damage);
+                }              
                 currentTargets++;
                 CheckDead();
             }

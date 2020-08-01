@@ -10,6 +10,7 @@ public enum EnemysType
     RANGE,
     MELEE,
     ROCKET,
+    ROCKET_INVISIBLE,
     MELEE_RANGE,
     MELEE_STUN,
     TOWER_FIRE,

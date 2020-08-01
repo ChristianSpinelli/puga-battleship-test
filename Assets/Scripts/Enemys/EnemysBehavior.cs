@@ -20,8 +20,12 @@ public class EnemysBehavior : MonoBehaviour
     protected UnityEngine.AI.NavMeshAgent agent;
     protected int currentLife, currentBulletsToRecharg;
     protected float currentRechargTime, currentShieldRechargTime, currentMelleAttackDelay, currentMeleeAttackTime, currentFireDelayTime, fireDelayTime;
-    protected bool walk, fire, rechargFire, meleeAttack, rangeAttack, suicide, playerToTarget, shield, rechargShield, stun;
-
+    protected bool walk, fire, rechargFire, meleeAttack, rangeAttack, suicide, playerToTarget, shield, rechargShield, stun, invisible;
+    
+    public bool IsInvisible
+    {
+        get { return invisible; }
+    }
 
     protected void StartStatus()
     {
@@ -100,6 +104,26 @@ public class EnemysBehavior : MonoBehaviour
 
                 break;
             case EnemysType.ROCKET:
+                walk = true;
+                fire = true;
+                rechargFire = false;
+                meleeAttack = false;
+                rangeAttack = true;
+                suicide = false;
+                playerToTarget = true;
+                shield = false;
+                rechargShield = false;
+                stun = false;
+
+                status[level - 1].meleeDamage = 0;
+                status[level - 1].meleeAttackTime = 0;
+                status[level - 1].meleeAttackDelay = 0;
+                status[level - 1].shieldResistence = 0;
+                status[level - 1].shieldRechargTime = 0;
+                status[level - 1].stunTime = 0;
+
+                break;
+            case EnemysType.ROCKET_INVISIBLE:
                 walk = true;
                 fire = true;
                 rechargFire = false;
@@ -240,7 +264,7 @@ public class EnemysBehavior : MonoBehaviour
             Instantiate(bullet, cannonsLocal[i].position, cannonsLocal[i].rotation);
     }
 
-
+    
     public void TakeDamage(int damage)
     {
         currentLife -= damage;
