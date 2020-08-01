@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ResultController : MonoBehaviour
 {
+    [Header("References")]
     public GameObject resultPanel;
     Text resultText;
     

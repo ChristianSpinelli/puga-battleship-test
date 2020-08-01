@@ -3,20 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CoinController : MonoBehaviour
+public class TotalCoinsController : MonoBehaviour
 {
+    [Header("References")]
     Text text;
+    CurrencyData data;
+
 
     // Start is called before the first frame update
     void Start()
     {
         text = GetComponentsInChildren<Text>()[1];
+        data = GameDAO.LoadCurrencyData();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //update coins colected
-        text.text = CurrencyManager.instance.stageCurrencys + "";    
+        if (data != null)
+        {
+            text.text = data.totalCurrencys + "";
+        }
+            
     }
 }

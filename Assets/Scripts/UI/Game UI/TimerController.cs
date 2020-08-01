@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TimerController : MonoBehaviour
 {
+    [Header("References")]
     Text text;
 
 

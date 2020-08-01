@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using System;
 
 public class CurrencyManager : MonoBehaviour
 {
+    [Header("Singleton")]
     public static CurrencyManager instance;
     public static CurrencyManager Instance { get { return instance; } }
 
@@ -20,22 +22,33 @@ public class CurrencyManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        CurrencyData data = GameDAO.LoadCurrencyData();
+        if (data != null)
+        {
+            totalCurrencys = data.totalCurrencys;
+        }
+               
+        
     }
 
-    private void Update()
-    {
-        if (GameManager.instance.endGame)
-            OnFinish();
-    }
 
     public void AddCurrency(int valueToAdd)
     {
         stageCurrencys += valueToAdd;
     }
 
-   private void OnFinish()
+  public void OnFinish()
     {
         totalCurrencys += stageCurrencys;
         stageCurrencys = 0;
+        CurrencyData data = new CurrencyData();
+        data.totalCurrencys = totalCurrencys;
+        GameDAO.SaveCurrencyData(data);
     }
+}
+
+[Serializable]
+public class CurrencyData
+{
+    public int totalCurrencys;
 }
