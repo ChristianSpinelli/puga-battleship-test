@@ -64,8 +64,7 @@ public class MagaBombBehavior : MonoBehaviour
         }
         else if (other.GetComponent<EnemysBehavior>() && originType == ShipType.HERO)
         {
-            if(!other.GetComponent<EnemysBehavior>().IsInvisible)
-                other.GetComponent<EnemysBehavior>().TakeDamage((int)this.status[megaBombLevel - 1].damage);
+             other.GetComponent<EnemysBehavior>().TakeDamage((int)this.status[megaBombLevel - 1].damage);
         }
     }
 }

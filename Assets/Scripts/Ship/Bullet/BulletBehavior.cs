@@ -65,11 +65,8 @@ public class BulletBehavior : Bullet
                 }
             }else if(other.GetComponent<EnemysBehavior>() && originType == ShipType.HERO)
             {
-                //if the enemy is invisible it doesnt take damage
-                if (!other.GetComponent<EnemysBehavior>().IsInvisible)
-                {
-                    other.GetComponent<EnemysBehavior>().TakeDamage(this.damage);
-                }              
+                
+                other.GetComponent<EnemysBehavior>().TakeDamage(this.damage);               
                 currentTargets++;
                 CheckDead();
             }

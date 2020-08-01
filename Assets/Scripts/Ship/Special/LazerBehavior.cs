@@ -33,8 +33,7 @@ public class LazerBehavior : MonoBehaviour
             }
         else if (other.GetComponent<EnemysBehavior>())
         {
-            if(!other.GetComponent<EnemysBehavior>().IsInvisible)
-                other.GetComponent<EnemysBehavior>().TakeDamage((int)this.status[lazerLevel - 1].damage);
+            other.GetComponent<EnemysBehavior>().TakeDamage((int)this.status[lazerLevel - 1].damage);
         }
     }
 

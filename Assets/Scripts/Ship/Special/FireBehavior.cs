@@ -72,8 +72,7 @@ public class FireBehavior : MonoBehaviour
         }
         else if (other.GetComponent<EnemysBehavior>())
         {
-            if (!other.GetComponent<EnemysBehavior>().IsInvisible)
-                other.GetComponent<EnemysBehavior>().TakeDamage((int)this.status[fireLevel - 1].damage);
+             other.GetComponent<EnemysBehavior>().TakeDamage((int)this.status[fireLevel - 1].damage);
         }
 
     }

@@ -22,10 +22,7 @@ public class EnemysBehavior : MonoBehaviour
     protected float currentRechargTime, currentShieldRechargTime, currentMelleAttackDelay, currentMeleeAttackTime, currentFireDelayTime, fireDelayTime;
     protected bool walk, fire, rechargFire, meleeAttack, rangeAttack, suicide, playerToTarget, shield, rechargShield, stun, invisible;
     
-    public bool IsInvisible
-    {
-        get { return invisible; }
-    }
+   
 
     protected void StartStatus()
     {
@@ -267,12 +264,17 @@ public class EnemysBehavior : MonoBehaviour
     
     public void TakeDamage(int damage)
     {
-        currentLife -= damage;
-
-        if (currentLife <= 0)
+        //if is invicible dont take damage
+        if (!invisible)
         {
-            Dead();
+            currentLife -= damage;
+
+            if (currentLife <= 0)
+            {
+                Dead();
+            }
         }
+        
     }
 
 
