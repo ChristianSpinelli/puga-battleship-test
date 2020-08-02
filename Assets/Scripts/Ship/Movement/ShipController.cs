@@ -53,6 +53,16 @@ public class ShipController : Status
         get { return initialHealth; }
     }
 
+    private void Awake()
+    {
+        ShipData data = GameDAO.LoadShipData();
+        if (data != null)
+        {
+            mySecondaryCannonType = data.selectedCannon;
+            myDroneType = data.selectedDrone;
+        }
+    }
+
     void Start()
     {
         SetShootRate();
@@ -407,4 +417,11 @@ public class ShipController : Status
 public class ManaStatus
 {
     public int ManaTotal;
+}
+
+[System.Serializable]
+public class ShipData
+{
+    public SecondaryCannonType selectedCannon;
+    public DroneType selectedDrone;
 }

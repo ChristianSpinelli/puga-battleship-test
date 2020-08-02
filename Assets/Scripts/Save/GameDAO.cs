@@ -35,4 +35,35 @@ public class GameDAO : MonoBehaviour
         }
     }
 
+
+    public static void SaveShipData(ShipData data)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/shipData.bin";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+
+    public static ShipData LoadShipData()
+    {
+        ShipData data = new ShipData();
+        string path = Application.persistentDataPath + "/shipData.bin";
+
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            data = formatter.Deserialize(stream) as ShipData;
+            stream.Close();
+            return data;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+
 }

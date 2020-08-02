@@ -264,7 +264,7 @@ public class EnemysBehavior : MonoBehaviour
     
     public void TakeDamage(int damage)
     {
-        //if is invicible dont take damage
+        //if is invisible dont take damage
         if (!invisible)
         {
             currentLife -= damage;
